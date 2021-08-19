@@ -15,9 +15,11 @@ const albumSchema = new Schema ({
     image: {
         type: String
     },
-    genres: {
-        type: Array
-    },
+    genres: [
+        {
+            type: String
+        }
+    ],
     comments: [
         {
             type: Schema.Types.ObjectId,
