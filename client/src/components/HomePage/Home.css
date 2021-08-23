@@ -1,0 +1,56 @@
+html, body {
+    background-color: #3b3b3b;
+}
+
+.border-bottom {
+    border: none !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.657)
+}
+
+#logo {
+    color: rgb(132, 185, 255);
+}
+
+#logo h3 {
+    color: rgb(151, 151, 151);
+}
+
+.settingsHeader {
+    background-color: #b4b4b4;
+}
+
+.settingsHeader h4 {
+    font-size: 25px;
+    color: rgb(255, 234, 0);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
+}
+
+.settingsHeader span {
+    font-size: 15px;
+    color: rgba(3, 3, 0, 0.801);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
+}
+
+.settingsCard {
+    background-color: rgb(202, 225, 255); 
+}
+
+.settingsBody h3 {
+    color: black;
+}
+
+.settingsBody {
+    background-color: rgb(202, 225, 255);
+}
+
+.bg-lightblue-dull {
+    background-color: rgba(184, 215, 255, 0.877);
+}
+
+.bg-lightblue-dull-dull {
+    background-color: rgba(16, 116, 255, 0.705);
+}
+
+.bg-grey {
+    background-color:rgb(92, 92, 92)
+}
