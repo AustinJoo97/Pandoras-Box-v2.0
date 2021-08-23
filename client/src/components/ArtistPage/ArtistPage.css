@@ -1,0 +1,87 @@
+/* artist info article */
+#artistProfile {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.466);
+}
+
+#artistProfile > h2 {
+    color: red;
+}
+
+#artistProfile > p {
+    font-size: .9rem;
+}
+
+#artistProfile > img {
+    height: 300px;
+    width: 300px;
+}
+
+
+.artistBody > h2 {
+    font-size: 50px;
+    padding-bottom: 5px;
+    color: rgb(251, 255, 0);
+    text-shadow: 2px 1px 10px rgb(133, 133, 133);
+}
+
+.artistBody > p {
+    font-size: 1.2em;
+    text-shadow: 0px 0px 3px rgb(109, 109, 109);
+    color: rgb(12, 12, 12) !important;
+}
+
+/* discography article */
+.discography {
+    padding: 0 30px;
+}
+
+.discography > h2 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+    color: rgb(0, 160, 209);
+    text-shadow: 2px 1px 10px rgba(133, 133, 133, 0.521);
+}
+
+
+/* individual album card */
+.albumCard > * {
+    font-size: 20px;
+}
+
+.albumCard img {
+    border: 3px solid rgb(132, 185, 255);;
+    display: block;
+}
+
+.albumBody h4 {
+    color: rgb(251, 255, 0);
+    font-weight: 600;
+    text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumBody h5 {
+    color: rgb(251, 255, 0);
+    font-weight: 600;
+    text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumBody span {
+    color: rgb(31, 31, 31);
+    text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumBody p {
+    font-size: 15px;
+    color: rgb(31, 31, 31);
+    text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumCard > h4 {
+    color: black;
+}
+
+.albumCard > p {
+    font-size: 10px;
+}
+
