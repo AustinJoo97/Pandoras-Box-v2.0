@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'next/link'
 import { Container, Col, Card } from "react-bootstrap";
 import Slider from "react-slick";
 
