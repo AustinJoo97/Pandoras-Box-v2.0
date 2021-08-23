@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 // utils
 import Auth from '../../utils/auth';
-import '../../styles/Header.css';
+import './Header.css';
 
 
 const Header = () => {
