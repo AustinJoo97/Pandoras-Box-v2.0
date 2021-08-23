@@ -3,6 +3,7 @@ export default getTwoFavoriteGenres = (userObj) => {
     let favoritesObj = {};
     let topGenre;
     let secondGenre;
+    let thirdGenre;
 
     userObj.favorites.map((favoritedAlbum) => {
         allGenres.push(favoritedAlbum.genre);
@@ -19,7 +20,7 @@ export default getTwoFavoriteGenres = (userObj) => {
     const talliedGenres = Object.keys(favoritesObj);
 
     for (let i = 0; i < talliedGenres.length; i++) {
-        if (!topGenre && !secondGenre) {
+        if (!topGenre && !secondGenre && !thirdGenre) {
             topGenre = {
                 genre: talliedGenres[i],
                 count: favoritesObj[talliedGenres[i]]
@@ -28,21 +29,32 @@ export default getTwoFavoriteGenres = (userObj) => {
                 genre: talliedGenres[i],
                 count: favoritesObj[talliedGenres[i]]
             };
+            thirdGenre = {
+                genre: talliedGenres[i],
+                count: favoritesObj[talliedGenres[i]]
+            }
         }
 
         if (favoritesObj[talliedGenres[i]] >= topGenre.count) {
+            thirdGenre = secondGenre;
             secondGenre = topGenre;
             topGenre = {
                 genre: talliedGenres[i],
                 count: favoritesObj[talliedGenres[i]]
             };
-        } else if (favoritesObj[talliedGenres[i]] < topGenre.count && favoritesObj[talliedGenres[i]] > secondGenre.count) {
+        } else if (favoritesObj[talliedGenres[i]] < topGenre.count && favoritesObj[talliedGenres[i]] >= secondGenre.count) {
+            thirdGenre = secondGenre;
             secondGenre = {
                 genre: talliedGenres[i],
                 count: favoritesObj[talliedGenres[i]]
             };
+        } else if (favoritesObj[talliedGenres[i]] < topGenre.count && favoritesObj[talliedGenres[i]] < secondGenre.count && favoritesObj[talliedGenres[i]] >= thirdGenre.count){
+            thirdGenre = {
+                genre: talliedGenres[i],
+                count: favoritesObj[talliedGenres[i]]
+            }
         }
     }
 
-    return { topGenre, secondGenre }
+    return { topGenre, secondGenre, thirdGenre }
 }
