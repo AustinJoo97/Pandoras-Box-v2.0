@@ -1,0 +1,22 @@
+/* display what was searched */
+.show-query {
+    display: flex;
+    justify-content: center;
+}
+
+/* card box */
+#searchResults {
+    width: 80%;
+    margin: 0 auto;
+    border-top: 1px solid grey;
+}
+
+/* idividual card */
+.album-card {
+    margin: 15px;
+}
+
+.album-card img {
+    height: 150px;
+    width: 150px;
+}
