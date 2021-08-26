@@ -1,9 +1,8 @@
 import React from 'react';
-import "./Home/Home.css";
 import { useState, useEffect } from 'react'
 
 // import RecentComments from '../components/RecentCommentSection';
-import PopulateCarousel from '../SharedComponents/Carousel.js';
+import {PopulateCarousel} from '../SharedComponents/Carousel.js';
 import { getTokenThenAlbumGenres } from '../utils/API'
 
 
