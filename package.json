@@ -4,7 +4,7 @@
     "description": "",
     "main": "server/server.js",
     "engines": {
-      "node": "14.16.1"
+        "node": "14.16.1"
     },
     "scripts": {
         "start": "node server/server.js",
@@ -25,5 +25,4 @@
         "react-bootstrap": "^1.6.1",
         "react-icons": "^4.2.0"
     }
-  }
-  
+}

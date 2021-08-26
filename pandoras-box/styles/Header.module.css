@@ -1,0 +1,43 @@
+.search-bar {
+    display: flex;
+    text-align-last: center;
+    align-items: center;
+}
+
+.search-bar > * {
+    padding: 0;
+    margin: 0;
+}
+
+.search-bar svg {
+    height: 35px;
+    width: 35px;
+}
+
+#dropdown-basic > svg {
+    display: flex;
+    margin: 0 auto;
+    height: 40px;
+    width: 40px;
+}
+
+/* h1, h2, h3, h4, h5 {
+    color: rgb(204, 204, 204);
+} */
+
+.slick-dots li.slick-active button:before {
+    color: rgb(132, 185, 255);
+}
+
+.slick-dots li button:before {
+    color: rgb(255, 255, 255);
+}
+
+.slick-prev:before, .slick-next:before {
+    color: rgb(155, 188, 233) ;
+}
+
+.avatar svg {
+    height: 1000px;
+}
+
