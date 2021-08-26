@@ -1,7 +1,7 @@
 import ViewAlbum from '../src/DisplayAlbumView';
 
 import { useEffect, useState } from 'react';
-import { getTokenThenSingleAlbumDetails } from './api/hello.js';
+import { getTokenThenSingleAlbumDetails } from './api/spotify.js';
 
 
 const queryAlbum = async (setAlbum) => {

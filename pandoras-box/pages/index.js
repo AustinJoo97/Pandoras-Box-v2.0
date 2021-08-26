@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/Home.module.css'
 
 import PopulateCarousel from '../src/Carousel';
-import { getTokenThenAlbumGenres } from './api/hello';
+import { getTokenThenAlbumGenres } from './api/spotify';
 
 // query 3 calls to spotify api to get three different sets of data for the carousel
 const grabData = async (setAllAlbums, setLoading) => {

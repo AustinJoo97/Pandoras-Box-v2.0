@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 
-import YourRecentComments from '../components/YourRecentComments';
-import UserSettings from '../components/UserSettings';
-import PopulateCarousel from '../components/Carousel';
+import UserSettings from '../src/UserSettings';
+
 
 import { GiAbstract082, GiAbstract020, GiAbstract041 } from "react-icons/gi";
 

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getTokenThenArtistsDetails, getTokenThenArtistAlbums } from './api/hello.js';
+import { getTokenThenArtistsDetails, getTokenThenArtistAlbums } from './api/spotify.js';
 
 import ViewArtist from '../src/DisplayArtistView';
 
