@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 // pages
-import Home from './pages/Home';
+import {Home} from './pages/index';
 import Profile from './pages/Profile';
 import Artist from './pages/Artist';
 import Album from './pages/Album'
@@ -30,6 +30,9 @@ import UpdateUser from './pages/UpdateUser';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/login-signup.css";
 import "./styles/index.css";
+import './sharedcomponets/Carousel.css';
+import './pages/search/SearchPage.css';
+import './pages/home.css';
 
 
 
