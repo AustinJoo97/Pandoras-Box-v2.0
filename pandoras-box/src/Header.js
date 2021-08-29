@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 // utils
 import Auth from './utils/auth';
-import '../styles/Header.module.css';
+// import styles from '../styles/Header.module.css';
 
 
 const Header = () => {
@@ -46,7 +46,7 @@ const Header = () => {
 
                 {/* will ideally be populated via api call and map */}
                 <Dropdown.Menu>
-                  <Dropdown.Item href={`/search?q=techno&type=albums`}>Techno</Dropdown.Item>
+                  <Dropdown.Item className="big-boy" href={`/search?q=techno&type=albums`}>Techno</Dropdown.Item>
                   <Dropdown.Item href={`/search?q=country&type=albums`}>Country</Dropdown.Item>
                   <Dropdown.Item href={`/search?q=hip-hop&type=albums`}>Hip-Hop</Dropdown.Item>
                   <Dropdown.Item href={`/search?q=rap&type=albums`}>Rap</Dropdown.Item>
