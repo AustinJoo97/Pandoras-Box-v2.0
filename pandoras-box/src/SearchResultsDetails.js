@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link'
 import { Col, Card, Row } from "react-bootstrap";
 
-import '../styles/SearchPage.module.css';
+import styles from '../styles/SearchPage.module.css';
 
 
 const PopulateSearchResults = ({ queryResults, queryType }) => {
@@ -15,10 +15,10 @@ const PopulateSearchResults = ({ queryResults, queryType }) => {
         if (queryType === "artists") {
             // CreateAtistSearchResults(queryResults)
             return queryResults.items.map(artist => (
-                <Col lg="3" key={artist.id} className="albumCard">
+                <Col lg="3" key={artist.id} >
                     <Link href={`/artist?q=${artist.id}`} className="text-decoration-none">
                         <Card className="mx-3 cardCarousel">
-                            <Card.Body className="albumBody text-center ">
+                            <Card.Body className={styles.albumCard}>
                                 <h6>{artist.type}</h6>
                                 <div className="embed-responsive">
                                     <Card.Img

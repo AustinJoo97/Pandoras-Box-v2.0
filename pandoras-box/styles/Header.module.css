@@ -9,10 +9,6 @@
     margin: 0;
 }
 
-.search-bar svg {
-    height: 35px;
-    width: 35px;
-}
 
 #dropdown-basic > svg {
     display: flex;
@@ -41,7 +37,6 @@
     height: 1000px;
 }
 
-.big-boy {
-    font-family: fantasy;
-}
+
+
 

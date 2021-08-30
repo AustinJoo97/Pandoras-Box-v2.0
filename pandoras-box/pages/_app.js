@@ -5,6 +5,7 @@ import { useApollo } from '../apollo-client'
 import Header from '../src/Header'
 import Footer from '../src/Footer'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {

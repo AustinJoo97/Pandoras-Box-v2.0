@@ -31,7 +31,7 @@ const Header = () => {
           {/* Site Logo */}
           <a href="/" id="logo" className="d-flex align-items-center mb-2 mb-lg-0 text-grey text-decoration-none col-5">
             <GiBoxTrap className="display-2"></GiBoxTrap>
-            <h3 className="display-4 ">Pandoras Box</h3>
+            <h3 className="display-4">Pandoras Box</h3>
           </a>
 
           {/* search */}
@@ -39,14 +39,14 @@ const Header = () => {
             <div className="search-bar">
               {/* genre drop down menu */}
               <Dropdown className="">
-                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger bg-lightblue">
-                  Search by Categories
+                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger bg-lightblue lightTxt">
+                  <span>Categories</span>
                 </Dropdown.Toggle>
 
 
                 {/* will ideally be populated via api call and map */}
                 <Dropdown.Menu>
-                  <Dropdown.Item className="big-boy" href={`/search?q=techno&type=albums`}>Techno</Dropdown.Item>
+                  <Dropdown.Item className="" href={`/search?q=techno&type=albums`}>Techno</Dropdown.Item>
                   <Dropdown.Item href={`/search?q=country&type=albums`}>Country</Dropdown.Item>
                   <Dropdown.Item href={`/search?q=hip-hop&type=albums`}>Hip-Hop</Dropdown.Item>
                   <Dropdown.Item href={`/search?q=rap&type=albums`}>Rap</Dropdown.Item>

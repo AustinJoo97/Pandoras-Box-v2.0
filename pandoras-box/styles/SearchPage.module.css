@@ -1,22 +1,39 @@
 /* display what was searched */
 .show-query {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* card box */
 #searchResults {
-    width: 80%;
-    margin: 0 auto;
-    border-top: 1px solid grey;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid grey;
 }
 
 /* idividual card */
-.album-card {
-    margin: 15px;
+.albumCard {
+  /* margin: 15px; */
+  /* background-color: teal; */
+  width: 90%;
+  padding: 30px 5px;
+  border-radius: 3px;
 }
 
-.album-card img {
-    height: 150px;
-    width: 150px;
+.albumCard img {
+  height: 140px;
+  width: 140px;
+}
+
+.albumCard h6 {
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: serif;
+  margin-top: 5px;
+}
+
+.albumCard p {
+  font-size: 1.1rem;
+  font-family: sans-serif;
+  padding-bottom: 5px;
 }
