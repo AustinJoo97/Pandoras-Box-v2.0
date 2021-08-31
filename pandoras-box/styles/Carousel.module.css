@@ -1,0 +1,71 @@
+.cardCarousel {
+  border: solid 2px rgb(48, 48, 48);
+  outline: none;
+  background-color: rgb(160, 160, 160);
+  border-radius: 3px;
+  box-shadow: none;
+  margin-top: 3%;
+}
+
+.cardCarousel:hover {
+  animation: animated-border 1.5s infinite;
+  border-color: rgb(150, 184, 255);
+}
+
+/*               css for glowing transitions */
+
+@keyframes animated-border {
+  0% {
+    box-shadow: 0 0 0 0 rgb(150, 184, 255);
+  }
+  100% {
+    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0);
+  }
+}
+
+.carsouselTitle {
+  font-size: 25px;
+  color: rgb(56, 161, 209);
+  text-shadow: 0 0 5px rgba(34, 148, 255, 0.616);
+}
+
+.profileName {
+  font-size: 25px;
+  color: rgb(0, 174, 255);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
+}
+
+.albumCard {
+  /* margin: 15px; */
+  background-color: teal;
+  width: 90%;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.albumCard img {
+  height: 150px;
+  width: 150px;
+}
+
+.albumCard:hover {
+  animation: animated-border 1.5s infinite;
+  border-color: rgb(150, 184, 255);
+}
+
+.card {
+  width: fit-content;
+}
+
+.slick-dots li.slick-active button:before {
+  color: rgb(132, 185, 255);
+}
+
+.slick-dots li button:before {
+  color: rgb(255, 255, 255);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(155, 188, 233);
+}

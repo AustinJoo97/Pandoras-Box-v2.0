@@ -1,0 +1,41 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* header */
+.search-bar {
+  display: flex;
+  text-align-last: center;
+  align-items: center;
+}
+
+.search-bar > * {
+  padding: 0;
+  margin: 0;
+}
+
+.search-bar svg {
+  height: 35px;
+  width: 35px;
+}
+
+.avatar svg {
+  height: 1000px;
+}
+
+.big-boy {
+  font-family: fantasy;
+}
