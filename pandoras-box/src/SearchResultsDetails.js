@@ -1,10 +1,93 @@
 import React from 'react';
+import { useState, useEffect, useRef } from 'react';
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Col, Card, Row } from "react-bootstrap";
 
 import styles from '../styles/SearchPage.module.css';
+import { getQueryResults } from '../pages/api/spotify.js';
 
+const queryData = async (setSeachResults, setLoading, searchResultsReference) => {
+    // get our data values
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('q')
+    const searchType = params.get('type');
+
+
+    try {
+        const response = await getQueryResults(searchQuery, searchType)
+        await setSeachResults(response)
+        searchResultsReference.current = searchType;
+        return setLoading(false);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
+const PopulateSearch = () => {
+
+    const [searchResults, setSeachResults] = useState([])
+    const [isLoading, setLoading] = useState(true);
+    const searchResultsReference = useRef('');
+
+    useEffect(() => {
+        queryData(setSeachResults, setLoading, searchResultsReference)
+    }, [searchResultsReference])
+
+
+
+    console.log(searchResults)
+    let sanResults;
+    searchResults.items ? sanResults = searchResults.items : sanResults = searchResults;
+
+
+    if (isLoading) {
+        return (
+            <h5>Loading...</h5>
+        )
+    }
+
+    // console.log(searchResultsReference.current)
+    return sanResults.map(cardData => (
+        <Col lg="3" key={cardData.id} className="albumCard">
+            <Link href={`/${searchResultsReference.current}?q=${cardData.id}`} className="text-decoration-none">
+                <Card>
+                    <Card.Body className="albumBody text-center">
+                        <div className="embed-responsive">
+                            {cardData.images[0]
+                                ? <Card.Img
+                                    className="card-img-top embed-responsive-item"
+                                    src={cardData.images[0].url}
+                                    alt={cardData.name}
+                                />
+                                : <Card.Img
+                                    className="card-img-top embed-responsive-item"
+                                    src='https://picsum.photos/200'
+                                    alt='No picture provided'
+                                />
+                            }
+                        </div>
+                        <Card.Title>{cardData.name}</Card.Title>
+                        <div>
+                            {cardData.popularity
+                                ? `Popularity: ${cardData.popularity}/100`
+                                : `Release date: ${cardData.release_date}`}
+                        </div>
+                        <div>
+                            {cardData.followers
+                                ? `Total followers: ${cardData.followers.total}`
+                                : `Total tracks: ${cardData.total_tracks}`}
+                        </div>
+                    </Card.Body>
+                </Card>
+            </Link>
+        </Col>
+    ))
+}
+
+export default PopulateSearch;
 
 const PopulateSearchResults = ({ queryResults, queryType }) => {
     // some management of how results will display here
@@ -106,47 +189,7 @@ const PopulateSearchResults = ({ queryResults, queryType }) => {
     }
 }
 
-const PopulateSearchResults2 = ({ queryResults, queryType }) => {
-    let sanResults;
-    queryResults.items ? sanResults = queryResults.items : sanResults = queryResults;
-    console.log(queryType)
-    // console.log(sanResults[0].images[0].url)
-    return sanResults.map(cardData => (
-        <Col lg="3" key={cardData.id} className="albumCard">
-            <Link href={`/${queryType}?q=${cardData.id}`} className="text-decoration-none">
-                <Card>
-                    <Card.Body className="albumBody text-center">
-                        <div className="embed-responsive">
-                            {cardData.images[0]
-                                ? <Card.Img
-                                    className="card-img-top embed-responsive-item"
-                                    src={cardData.images[0].url}
-                                    alt={cardData.name}
-                                />
-                                : <Card.Img
-                                    className="card-img-top embed-responsive-item"
-                                    src='https://picsum.photos/200'
-                                    alt='No picture provided'
-                                />
-                            }
-                        </div>
-                        <Card.Title>{cardData.name}</Card.Title>
-                        <div>
-                            {cardData.popularity
-                                ? `Popularity: ${cardData.popularity}/100`
-                                : `Release date: ${cardData.release_date}`}
-                        </div>
-                        <div>
-                            {cardData.followers
-                                ? `Total followers: ${cardData.followers.total}`
-                                : `Total tracks: ${cardData.total_tracks}`}
-                        </div>
-                    </Card.Body>
-                </Card>
-            </Link>
-        </Col>
-    ))
-}
+
 
 // let artist: {
 //     tye: 'artists',
@@ -167,5 +210,3 @@ const PopulateSearchResults2 = ({ queryResults, queryType }) => {
 //     album.release_date,
 //     album.total_tracks,
 // }
-
-export default PopulateSearchResults2;
