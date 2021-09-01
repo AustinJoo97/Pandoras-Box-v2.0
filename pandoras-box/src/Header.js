@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Link from 'next/link'
 import { HiSearch, HiUser, HiOutlineCake } from "react-icons/hi"
 import { GiBoxTrap } from "react-icons/gi"
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 
 // utils
@@ -11,6 +12,7 @@ import Auth from './utils/auth';
 
 
 const Header = () => {
+  const [typeVal, setType] = useState('artist')
   const [searchVal, setSearch] = useState('');
 
   const logout = (event) => {
@@ -18,11 +20,16 @@ const Header = () => {
     Auth.logout();
   };
 
+  const handleSelect = (e) => {
+    setType(e)
+   
+  }
+
 
   // IF user types in a search, then when they click the search button, it will set search value and type within link redirect
   // IF user clicks genre, then it will set link to redirect to "/search/q="genreName"&type="genre".
-
-
+  console.log(typeVal);
+  console.log(searchVal);
   return (
     <header className="p-3 mb-5 border-bottom">
       <div className="container">
@@ -31,50 +38,38 @@ const Header = () => {
           {/* Site Logo */}
           <a href="/" id="logo" className="d-flex align-items-center mb-2 mb-lg-0 text-grey text-decoration-none col-5">
             <GiBoxTrap className="display-2"></GiBoxTrap>
-            <h3 className="display-4 ">Pandoras Box</h3>
+            <h3 className="display-4">Pandoras Box</h3>
           </a>
 
           {/* search */}
           <div className="col-6">
             <div className="search-bar">
-              {/* genre drop down menu */}
-              <Dropdown className="">
-                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger bg-lightblue">
-                  Search by Categories
-                </Dropdown.Toggle>
 
-
-                {/* will ideally be populated via api call and map */}
-                <Dropdown.Menu>
-                  <Dropdown.Item className="big-boy" href={`/search?q=techno&type=albums`}>Techno</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=country&type=albums`}>Country</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=hip-hop&type=albums`}>Hip-Hop</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=rap&type=albums`}>Rap</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=folk&type=albums`}>Folk</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=classical&type=albums`}>Classical</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=world&type=albums`}>World</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=metal&type=albums`}>Metal</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=new-wave&type=albums`}>New wave</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=dubstep&type=albums`}>Dubstep</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <DropdownButton
+                title="Search by:"
+                id="dropdown-menu-align-right"
+                onSelect={handleSelect}
+              >
+                <Dropdown.Item eventKey="artist">artist</Dropdown.Item>
+                <Dropdown.Item eventKey="album">album</Dropdown.Item>
+              </DropdownButton>
 
 
 
               {/* search bar, sets state = our search value */}
               <form className="col-6">
-                <input type="search" className="form-control" placeholder="Search by Artist" aria-label="Search"
+                <input type="search" className="form-control" placeholder={`Search by ${typeVal}`} aria-label="Search"
                   onChange={(e) => setSearch(e.target.value)}
                 ></input>
 
               </form>
 
               {/* search button, takes state and constructs our params */}
-                <Link
-                  className="col-1"
-                  href={`/search?q=${searchVal}&type=artists`}>
-                  <HiSearch />
-                </Link>
+              <Link
+                className="col-1"
+                href={`/search?q=${searchVal}&type=${typeVal}`}>
+                <HiSearch />
+              </Link>
             </div>
           </div>
 

@@ -5,9 +5,11 @@ const btoa = require("btoa");
 const clientId = "10cece6c2f3f4320b2e07f79197c27bb";
 const clientSecret = "aeec5e00e5e44eb99fc43891e89e2c5a";
 
-// Get token from spotify then call `getAlbumGenres` to return albums by genre.
 
+// call function that takes id(query) as an argument
 export const getTokenThenAlbumGenres = async (genreID) => {
+
+  // create params and config strings, then use axios and this new constructed url to grab our token.
   const params = new URLSearchParams();
   params.append("grant_type", "client_credentials");
 
@@ -24,6 +26,7 @@ export const getTokenThenAlbumGenres = async (genreID) => {
     config
   );
 
+  // function that will take our token and query to construct a url for our request to spotify.
   const getAlbumGenres = async (token, genreID) => {
     const { data } = await axios.get(
       `https://api.spotify.com/v1/search?q=${genreID}&type=album&market=US&limit=30`,
@@ -32,17 +35,15 @@ export const getTokenThenAlbumGenres = async (genreID) => {
         headers: { Authorization: "Bearer " + token },
       }
     );
-
-    //  console.log(data.albums.items)
     return data.albums.items;
   };
 
-
+  // call this function and return the data that it retrives.
   return getAlbumGenres(res.data.access_token, genreID);
 };
 
 
-// Get token from spotify then call `getArtists` to return artists based on query string.
+// same as above but for artists instead of albums.
 export const getTokenThenArtists = async (artistName) => {
   const params = new URLSearchParams();
   params.append("grant_type", "client_credentials");
@@ -60,7 +61,6 @@ export const getTokenThenArtists = async (artistName) => {
     config
   );
 
-  // Token and artistName passed in as parameters. API call is made to return 30 artist based on user search.
   const getArtists = async (token, artistName) => {
     const { data } = await axios.get(
       `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US&limit=30`,
@@ -69,15 +69,13 @@ export const getTokenThenArtists = async (artistName) => {
         headers: { Authorization: "Bearer " + token },
       }
     );
-
-    //   console.log(data.artists)
     return data.artists;
   };
-
   return getArtists(res.data.access_token, artistName);
 };
 
-// Get token from spotify then call `getArtists` to return artists based on query string.
+
+// used to grab single artist details
 export const getTokenThenArtistsDetails = async (artistID) => {
     const params = new URLSearchParams();
     params.append("grant_type", "client_credentials");
@@ -95,7 +93,6 @@ export const getTokenThenArtistsDetails = async (artistID) => {
       config
     );
   
-    // Token and artistName passed in as parameters. API call is made to return 30 artist based on user search.
     const getArtistsDetails = async (token, artistID) => {
       const { data } = await axios.get(
         `https://api.spotify.com/v1/artists/${artistID}`,
@@ -104,15 +101,13 @@ export const getTokenThenArtistsDetails = async (artistID) => {
           headers: { Authorization: "Bearer " + token },
         }
       );
-  
-        // console.log(data)
-      return data;
+        return data;
     };
-  
     return getArtistsDetails(res.data.access_token, artistID);
 };
 
-// Get token from spotify then call `getArtistAlbums` to return albums based on artistID.
+
+// used to grab single artist's albums
 export const getTokenThenArtistAlbums = async (artistID) => {
   const params = new URLSearchParams();
   params.append("grant_type", "client_credentials");
@@ -130,7 +125,6 @@ export const getTokenThenArtistAlbums = async (artistID) => {
     config
   );
 
-  // Token and artistID passed in as parameters. API call is made to return albums based on the artist ID.
   const getArtistAlbums = async (token, artistID) => {
     const { data } = await axios.get(
       `https://api.spotify.com/v1/artists/${artistID}/albums?include_groups=album&market=US&limit=30`,
@@ -139,15 +133,12 @@ export const getTokenThenArtistAlbums = async (artistID) => {
         headers: { Authorization: "Bearer " + token },
       }
     );
-
-    // console.log(data.items)
     return data.items;
   };
-
   return getArtistAlbums(res.data.access_token, artistID);
 };
 
-// Get token from spotify then call `getSingleAlbumDetails` to return the album details of a single ablum (requires album ID).
+// used to grab single album details
 export const getTokenThenSingleAlbumDetails = async (albumID) => {
   const params = new URLSearchParams();
   params.append("grant_type", "client_credentials");
@@ -175,14 +166,78 @@ export const getTokenThenSingleAlbumDetails = async (albumID) => {
         headers: { Authorization: "Bearer " + token },
       }
     );
-
-
-    //  console.log(data)
     return data;
   };
-
   return getSingleAlbumDetails(res.data.access_token, albumID);
 };
+
+
+
+
+// Forest's test scripts
+
+// get token should be called within any function, instead of each function having it's own seperate call
+const getToken = async () => {
+  const params = new URLSearchParams();
+  params.append("grant_type", "client_credentials");
+
+  const config = {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+    },
+  };
+
+  const res = await axios.post(
+    "https://accounts.spotify.com/api/token",
+    params,
+    config
+  );
+
+  return res.data.access_token;
+}
+
+
+// get search results from spotify, takes query and type as arguments.
+export const getQueryResults = async (searchQuery, type) => {
+
+  // define functions for either type of search
+  const getArtists = async (query, token) => {
+    const { data } = await axios.get(
+      `https://api.spotify.com/v1/search?q=${query}&type=artist&market=US&limit=30`,
+      {
+        method: "GET",
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    console.log(data)
+    return data.artists;
+  }
+
+  const getAlbums = async (query, token) => {
+    const { data } = await axios.get(
+      `https://api.spotify.com/v1/search?q=${query}&type=album&market=US&limit=30`,
+      {
+        method: "GET",
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    console.log(data)
+    return data.albums;
+  }
+
+  // call get token function to use when we determine which search we want to run
+  const token = await getToken();
+
+  // look at what type of search this, then run that search with query and token.
+  if (type === 'artist') {
+    return getArtists(searchQuery, token)
+  } else if (type === 'album') {
+    return getAlbums(searchQuery, token)
+  } else {
+    return console.log('error');
+  }
+}
 
 
 // ---- CALLS USED FOR TESTING FUNCTIONS!! ----

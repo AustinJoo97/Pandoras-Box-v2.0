@@ -1,3 +1,9 @@
+.albumsRow {
+  background-color: mintcream;
+  width: 90%;
+  margin: 50px auto;
+}
+
 .cardCarousel {
   border: solid 2px rgb(48, 48, 48);
   outline: none;
@@ -12,7 +18,7 @@
   border-color: rgb(150, 184, 255);
 }
 
-/*               css for glowing transitions */
+/* css for glowing transitions */
 
 @keyframes animated-border {
   0% {
@@ -24,9 +30,11 @@
 }
 
 .carsouselTitle {
-  font-size: 25px;
+  font-size: 30px;
+  margin: 0 30px;
+  padding-top: 20px;
   color: rgb(56, 161, 209);
-  text-shadow: 0 0 5px rgba(34, 148, 255, 0.616);
+  text-shadow: 0 0 2px rgba(34, 148, 255, 0.616);
 }
 
 .profileName {
@@ -37,15 +45,28 @@
 
 .albumCard {
   /* margin: 15px; */
-  background-color: teal;
+  /* background-color: teal; */
   width: 90%;
-  padding: 10px;
+  padding: 30px 5px;
   border-radius: 3px;
 }
 
 .albumCard img {
-  height: 150px;
-  width: 150px;
+  height: 140px;
+  width: 140px;
+}
+
+.albumCard h5 {
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: serif;
+  margin-top: 5px;
+}
+
+.albumCard p {
+  font-size: 1.1rem;
+  font-family: sans-serif;
+  padding-bottom: 5px;
 }
 
 .albumCard:hover {
@@ -55,6 +76,10 @@
 
 .card {
   width: fit-content;
+}
+
+.slick-dots {
+  margin: ;
 }
 
 .slick-dots li.slick-active button:before {
