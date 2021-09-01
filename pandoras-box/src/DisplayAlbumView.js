@@ -33,7 +33,7 @@ const DisplayGenres = ({ album }) => {
 // will most likely itterate a track length as well
 const TrackList = ({ album }) => {
     return album.tracks.items.map((track, idx) => (
-        <div>
+        <div key={idx}>
             <span>{idx + 1}. </span>
             <p>{track.name}</p>
         </div>

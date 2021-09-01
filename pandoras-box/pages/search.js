@@ -61,7 +61,7 @@ const ShowSearchScreen = (props) => {
     <Container>
       <h2 className="show-query">Search results</h2>
       <Row id="searchResults" className="">
-        <PopulateSearchResults queryResults={searchResults} queryType="albums" />
+        <PopulateSearchResults queryResults={searchResults} queryType="test" />
         
       </Row>
     </Container>
