@@ -1,26 +1,25 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getTokenThenArtistsDetails, getTokenThenArtistAlbums } from './api/spotify.js';
 
 import ViewArtist from '../src/DisplayArtistView';
 
-
+// function that grabs artist details as well as all albums
 const queryArtist = async (setArtistData, setLoading) => {
+
+    // get qeury search from URL.
     const params = new URLSearchParams(window.location.search);
     const artistId = params.get('q')
+
+    // create empty object to store both of these searches under 'allArtistInfo';
     const allArtistInfo = {};
 
-    // grab albums
+    // grab data
     allArtistInfo.albums = await getTokenThenArtistAlbums(artistId);
-    // console.log(allArtistInfo.albums)
-    // setArtistData(albumsResponse)
-
-    // search for artist info
     allArtistInfo.artist = await getTokenThenArtistsDetails(artistId);
-    // console.log(allArtistInfo.artist);
+
+    // set state to this new object.
     await setArtistData(allArtistInfo);
     setLoading(false);
-
 }
 
 
@@ -32,9 +31,6 @@ const ArtistPage = () => {
         queryArtist(setArtistData, setLoading)
     }, [setArtistData])
    
-    const router = useRouter();
-    console.log(router)
-    // console.log(artistData);
 
     if (isLoading) {
         return (
@@ -44,7 +40,6 @@ const ArtistPage = () => {
     return (
         <div>
             <ViewArtist artist={artistData.artist} albums={artistData.albums} />
-            
         </div>
     )
 }
