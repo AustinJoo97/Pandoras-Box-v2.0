@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link'
+import Image from 'next/image'
 import { Col, Card, Row } from "react-bootstrap";
 
 import styles from '../styles/SearchPage.module.css';
@@ -68,8 +69,8 @@ const PopulateSearchResults = ({ queryResults, queryType }) => {
 
         let sanResults;
         queryResults.items ? sanResults = queryResults.items : sanResults = queryResults;
-        
-        console.log(sanResults[0].images[0].url)
+
+        // console.log(sanResults[0].images[0].url)
         return sanResults.map(cardData => (
             <Col lg="3" key={cardData.id} className="albumCard">
                 <Link href={`/album?q=${cardData.id}`} className="text-decoration-none">
@@ -78,20 +79,20 @@ const PopulateSearchResults = ({ queryResults, queryType }) => {
                             <div className="embed-responsive">
                                 <Card.Img
                                     className="card-img-top embed-responsive-item"
-                                    src={cardData.images[0].url ? cardData.images[0].url : 'https://picsum.photos/200'}
+                                    src={cardData.images[0].url || 'https://picsum.photos/200'}
                                     alt={cardData.name}
                                 />
                             </div>
                             <Card.Title>{cardData.name}</Card.Title>
                             <div>
-                                {cardData.popularity 
-                                ? `Popularity: ${cardData.popularity}/100` 
-                                : `Release date: ${cardData.release_date}`}
+                                {cardData.popularity
+                                    ? `Popularity: ${cardData.popularity}/100`
+                                    : `Release date: ${cardData.release_date}`}
                             </div>
                             <div>
-                                {cardData.followers 
-                                ? `Total followers: ${cardData.followers.total}` 
-                                : `Total tracks: ${cardData.total_tracks}`}
+                                {cardData.followers
+                                    ? `Total followers: ${cardData.followers.total}`
+                                    : `Total tracks: ${cardData.total_tracks}`}
                             </div>
                         </Card.Body>
                     </Card>
@@ -103,6 +104,48 @@ const PopulateSearchResults = ({ queryResults, queryType }) => {
             <h2>some other card data</h2>
         )
     }
+}
+
+const PopulateSearchResults2 = ({ queryResults, queryType }) => {
+    let sanResults;
+    queryResults.items ? sanResults = queryResults.items : sanResults = queryResults;
+    console.log(queryType)
+    // console.log(sanResults[0].images[0].url)
+    return sanResults.map(cardData => (
+        <Col lg="3" key={cardData.id} className="albumCard">
+            <Link href={`/${queryType}?q=${cardData.id}`} className="text-decoration-none">
+                <Card>
+                    <Card.Body className="albumBody text-center">
+                        <div className="embed-responsive">
+                            {cardData.images[0]
+                                ? <Card.Img
+                                    className="card-img-top embed-responsive-item"
+                                    src={cardData.images[0].url}
+                                    alt={cardData.name}
+                                />
+                                : <Card.Img
+                                    className="card-img-top embed-responsive-item"
+                                    src='https://picsum.photos/200'
+                                    alt='No picture provided'
+                                />
+                            }
+                        </div>
+                        <Card.Title>{cardData.name}</Card.Title>
+                        <div>
+                            {cardData.popularity
+                                ? `Popularity: ${cardData.popularity}/100`
+                                : `Release date: ${cardData.release_date}`}
+                        </div>
+                        <div>
+                            {cardData.followers
+                                ? `Total followers: ${cardData.followers.total}`
+                                : `Total tracks: ${cardData.total_tracks}`}
+                        </div>
+                    </Card.Body>
+                </Card>
+            </Link>
+        </Col>
+    ))
 }
 
 // let artist: {
@@ -125,4 +168,4 @@ const PopulateSearchResults = ({ queryResults, queryType }) => {
 //     album.total_tracks,
 // }
 
-export default PopulateSearchResults;
+export default PopulateSearchResults2;

@@ -22,7 +22,7 @@ const AlbumPage = () => {
         queryAlbum(setAlbum);
     }, [setAlbum])
 
-
+    console.log(albumData)
     return (
         <div>
             <ViewAlbum

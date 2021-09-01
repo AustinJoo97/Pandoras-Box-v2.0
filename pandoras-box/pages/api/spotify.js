@@ -184,6 +184,66 @@ export const getTokenThenSingleAlbumDetails = async (albumID) => {
   return getSingleAlbumDetails(res.data.access_token, albumID);
 };
 
+// Forest's test scripts
+const getToken = async () => {
+  const params = new URLSearchParams();
+  params.append("grant_type", "client_credentials");
+
+  const config = {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+    },
+  };
+
+  const res = await axios.post(
+    "https://accounts.spotify.com/api/token",
+    params,
+    config
+  );
+
+  return res.data.access_token;
+}
+
+export const getQueryResults = async (searchType, type) => {
+  
+  const getArtists = async (query, token) => {
+    const { data } = await axios.get(
+      `https://api.spotify.com/v1/search?q=${query}&type=artist&market=US&limit=30`,
+      {
+        method: "GET",
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    console.log(data)
+    return data.artists;
+  }
+
+  const getAlbums = async (query, token) => {
+    const { data } = await axios.get(
+      `https://api.spotify.com/v1/search?q=${query}&type=album&market=US&limit=30`,
+      {
+        method: "GET",
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+    console.log(data)
+    return data.albums;
+  }
+
+  const token = await getToken();
+  console.log(token)
+  
+  if (type === 'artist') {
+    return getArtists(searchType, token)
+  } else if (type === 'album') {
+    return getAlbums(searchType, token)
+  } else {
+    return console.log('error');
+  }
+
+}
+
 
 // ---- CALLS USED FOR TESTING FUNCTIONS!! ----
 // getTokenThenAlbumGenres('hiphop')

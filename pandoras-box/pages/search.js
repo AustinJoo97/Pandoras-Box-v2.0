@@ -1,55 +1,66 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { Container, Row} from "react-bootstrap";
+import { useState, useEffect, useRef } from 'react';
+import { Container, Row } from "react-bootstrap";
 
-import PopulateSearchResults from '../src/SearchResultsDetails';
-import { getTokenThenArtists, getTokenThenAlbumGenres } from './api/spotify.js';
+import PopulateSearchResults2 from '../src/SearchResultsDetails';
+import { getTokenThenArtists, getTokenThenAlbumGenres, getQueryResults } from './api/spotify.js';
 
 // spotify query based on search type
-const queryArtists = async (setSeachResults, setLoading) => {
+const queryArtists = async (setSeachResults, setLoading, searchResultsReference) => {
   // get our data values
   const params = new URLSearchParams(window.location.search);
   const searchQuery = params.get('q')
   const searchType = params.get('type');
 
 
-  if (searchType === 'artists') {
-    try {
-      const response = await getTokenThenArtists(searchQuery)
-      await setSeachResults(response)
-      return setLoading(false);
-    } catch (err) {
-      console.log(err)
-    }
-
-  } else if (searchType === 'albums') {
-    try {
-      const response = await getTokenThenAlbumGenres(searchQuery)
-      await setSeachResults(response)
-      return setLoading(false);
-    } catch (err) {
-      console.log(err)
-    }
-  } else {
-    return console.log('whoops');
+  try {
+    const response = await getQueryResults(searchQuery, searchType)
+    await setSeachResults(response)
+    searchResultsReference.current = searchType;
+    return setLoading(false);
+  } catch (err) {
+    console.log(err)
   }
+
+
+  // if (searchType === 'artists') {
+  //   try {
+  //     const response = await getTokenThenArtists(searchQuery)
+  //     await setSeachResults(response)
+  //     searchResultsReference.current = response
+  //     return setLoading(false);
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+
+  // } else if (searchType === 'albums') {
+  //   try {
+  //     const response = await getTokenThenAlbumGenres(searchQuery)
+  //     await setSeachResults(response)
+  //     searchResultsReference.current = response
+  //     return setLoading(false);
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // } else {
+  //   return console.log('whoops');
+  // }
 }
 
 
 const ShowSearchScreen = (props) => {
-  // create state to hold that data from the query
+  // create state to hold that data from the query,
+  // ref allows us to avoid infinite call loop in useEffect.
   const [searchResults, setSeachResults] = useState([])
   const [isLoading, setLoading] = useState(true);
+  const searchResultsReference = useRef('');
 
   useEffect(() => {
-    queryArtists(setSeachResults, setLoading)
-  }, [searchResults])
+    queryArtists(setSeachResults, setLoading, searchResultsReference)
+  }, [searchResultsReference])
 
-  // const params = new URLSearchParams(window.location.search);
-  // const searchQuery = params.get('q');
-  // const searchType = params.get('type');
 
-  // console.log(searchResults)
+  // console.log(searchResultsReference)
 
   if (isLoading) {
     return (
@@ -61,12 +72,12 @@ const ShowSearchScreen = (props) => {
     <Container>
       <h2 className="show-query">Search results</h2>
       <Row id="searchResults" className="">
-        <PopulateSearchResults queryResults={searchResults} queryType="test" />
-        
+        <PopulateSearchResults2 queryResults={searchResults} queryType={searchResultsReference.current} />
+
       </Row>
     </Container>
-  
-    )
+
+  )
 }
 
 export default ShowSearchScreen;

@@ -46,16 +46,16 @@ const Header = () => {
 
                 {/* will ideally be populated via api call and map */}
                 <Dropdown.Menu>
-                  <Dropdown.Item className="" href={`/search?q=techno&type=albums`}>Techno</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=country&type=albums`}>Country</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=hip-hop&type=albums`}>Hip-Hop</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=rap&type=albums`}>Rap</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=folk&type=albums`}>Folk</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=classical&type=albums`}>Classical</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=world&type=albums`}>World</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=metal&type=albums`}>Metal</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=new-wave&type=albums`}>New wave</Dropdown.Item>
-                  <Dropdown.Item href={`/search?q=dubstep&type=albums`}>Dubstep</Dropdown.Item>
+                  <Dropdown.Item className="" href={`/search?q=techno&type=album`}>Techno</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=country&type=album`}>Country</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=hip-hop&type=album`}>Hip-Hop</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=rap&type=album`}>Rap</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=folk&type=album`}>Folk</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=classical&type=album`}>Classical</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=world&type=album`}>World</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=metal&type=album`}>Metal</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=new-wave&type=album`}>New wave</Dropdown.Item>
+                  <Dropdown.Item href={`/search?q=dubstep&type=album`}>Dubstep</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
@@ -72,7 +72,7 @@ const Header = () => {
               {/* search button, takes state and constructs our params */}
                 <Link
                   className="col-1"
-                  href={`/search?q=${searchVal}&type=artists`}>
+                  href={`/search?q=${searchVal}&type=artist`}>
                   <HiSearch />
                 </Link>
             </div>
