@@ -55,9 +55,9 @@ export default function Home() {
 
   return (
     <div>
-      <PopulateCarousel2 queryResults={allAlbums.rock} queryTitle="Rock Albums" />
-      <PopulateCarousel2 queryResults={allAlbums.rap} queryTitle="Rap Albums" />
-      <PopulateCarousel2 queryResults={allAlbums.jazz} queryTitle="Jazz Albums" />
+      <PopulateCarousel queryResults={allAlbums.rock} queryTitle="Rock Albums" />
+      <PopulateCarousel queryResults={allAlbums.rap} queryTitle="Rap Albums" />
+      <PopulateCarousel queryResults={allAlbums.jazz} queryTitle="Jazz Albums" />
     </div>
   )
 }

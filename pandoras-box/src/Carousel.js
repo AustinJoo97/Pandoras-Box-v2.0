@@ -26,77 +26,55 @@ const settingsNew = {
     infinite: true,
     arrows: true,
     centerMode: true,
-    centerPadding: '20px',
+    centerPadding: '0px',
     dotsClass: 'slick-dots',
     speed: 400,
-    slidesToShow: 7,
-    slidesToScroll: 1,
-    initialSlide: 4
+    slidesToShow: 6,
+    slidesToScroll: 3,
+    initialSlide: 4,
+    responsive: [
+        {
+            breakpoint: 1340,
+            settings: {
+                slidesToShow: 5,
+                centerPadding: '5px'
+            }
+        },
+        {
+            breakpoint: 1140,
+            settings: {
+                slidesToShow: 4,
+            }
+        }
+    ]
 };
 
 
 
-// Populate function (statically set to album configuration)
-const PopulateCarousel = ({ queryResults, queryTitle }) => {
+// Populate function 
+// currently set to handle album data, but can be changed to accommodate other data like artists
+export const PopulateCarousel = ({ queryResults, queryTitle }) => {
 
     return (
-        <Container>
-            <Col>
-                <h3 className={styles.carsouselTitle} >{queryTitle}</h3>
-                <Slider {...settingsGen}>
-                    <div>
-                        {queryResults &&
-                            queryResults.map((album) => (
-                                <Col lg="3" key={album.albumId} className={styles.albumCard}>
-                                    <Card.Body className="p-0 albumBody text-center">
-                                        <Link href={`/album?q=${album.albumId}`}>
-                                            <div className="embed-responsive">
-                                                <Card.Img
-                                                    className="card-img-top embed-responsive-item"
-                                                    variant="Top"
-                                                    name={album.albumId}
-                                                    src={album.albumImg} />
-                                            </div>
-                                        </Link>
-                                        <h5>{album.albumName}</h5>
-                                        <Link href={`/artist?q=${album.artistId}`}>
-                                            <p>by {album.artistName}</p>
-                                        </Link>
-                                        <p>{album.totalTracks}</p>
-                                    </Card.Body>
-                                </Col>
-                            ))}
-                    </div>
-                </Slider>
-            </Col>
-        </Container>
-
-    )
-
-}
-
-
-export const PopulateCarousel2 = ({ queryResults, queryTitle }) => {
-
-    return (
-
         <div className={styles.albumsRow}>
             <h2 className={styles.carsouselTitle}>{queryTitle}</h2>
             <Slider {...settingsNew}>
+
                 {queryResults &&
                     queryResults.map((album) => (
                         <div length="1" key={album.albumId} className={styles.albumCard}>
-                            <Link href={`/album?q=${album.albumId}`}>
-                                <div>
-                                    <img
-                                        name={album.albumId}
-                                        src={album.albumImg} />
+                            <div>
+                                <img
+                                    name={album.albumId}
+                                    src={album.albumImg} />
+                                <Link href={`/album?q=${album.albumId}`}>
                                     <h5>"{album.albumName}"</h5>
-                                </div>
-                            </Link>
-                            <Link href={`/artist?q=${album.artistId}`}>
-                                <p>{album.artistName}</p>
-                            </Link>
+                                </Link>
+
+                                <Link href={`/artist?q=${album.artistId}`}>
+                                    <p>{album.artistName}</p>
+                                </Link>
+                            </div>
                         </div>
                     ))}
             </Slider>

@@ -52,8 +52,10 @@
 }
 
 .albumCard img {
-  height: 140px;
-  width: 140px;
+  height: 175px;
+    width: 200px;
+    border-left: 25px double black;
+    border-style: groove;
 }
 
 .albumCard h5 {
@@ -79,7 +81,7 @@
 }
 
 .slick-dots {
-  margin: ;
+  color: red;
 }
 
 .slick-dots li.slick-active button:before {
