@@ -51,35 +51,38 @@ const PopulateSearch = () => {
 
     // console.log(searchResultsReference.current)
     return sanResults.map(cardData => (
-        <Col lg="3" key={cardData.id} className="albumCard">
+        <Col lg="3" key={cardData.id} className={styles.albumCard}>
             <Link href={`/${searchResultsReference.current}?q=${cardData.id}`} className="text-decoration-none">
-                <Card>
-                    <Card.Body className="albumBody text-center">
+                <Card className={styles.cardCarousel}>
+                    <Card.Body className= {styles.albumBody}>
                         <div className="embed-responsive">
                             {cardData.images[0]
-                                ? <Card.Img
-                                    className="card-img-top embed-responsive-item"
-                                    src={cardData.images[0].url}
-                                    alt={cardData.name}
-                                />
-                                : <Card.Img
-                                    className="card-img-top embed-responsive-item"
-                                    src='https://picsum.photos/200'
-                                    alt='No picture provided'
-                                />
-                            }
+                                    ? <Card.Img
+                                        className="card-img-top embed-responsive-item"
+                                        src={cardData.images[0].url}
+                                        alt={cardData.name}
+                                    />
+                                    : <Card.Img
+                                        className="card-img-top embed-responsive-item"
+                                        src='https://picsum.photos/200'
+                                        alt='No picture provided'
+                                    />
+                                }
                         </div>
-                        <Card.Title>{cardData.name}</Card.Title>
-                        <div>
-                            {cardData.popularity
-                                ? `Popularity: ${cardData.popularity}/100`
-                                : `Release date: ${cardData.release_date}`}
-                        </div>
-                        <div>
-                            {cardData.followers
-                                ? `Total followers: ${cardData.followers.total}`
-                                : `Total tracks: ${cardData.total_tracks}`}
-                        </div>
+                            <h5>{cardData.name}</h5>
+                            <h4>
+                                <div>
+                                    {cardData.popularity
+                                        ? `Popularity: ${cardData.popularity}/100`
+                                        : `Release date: ${cardData.release_date}`}
+                                </div>
+                                <div>
+                                    {cardData.followers
+                                        ? `Total followers: ${cardData.followers.total}`
+                                        : `Total tracks: ${cardData.total_tracks}`}
+                                </div>
+                            </h4>
+                        
                     </Card.Body>
                 </Card>
             </Link>

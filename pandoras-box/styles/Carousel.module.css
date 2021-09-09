@@ -99,7 +99,7 @@ text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
 }
 
 .albumBody h4 {
-  color:  rgb(223, 223, 223);
+  color:  rgb(206, 206, 206);
   background-color: rgba(0, 0, 0, 0.61);
   padding:0 3%;
   font-size: 16px;
@@ -112,9 +112,9 @@ text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
 }
 
 .albumBody h4:hover {
-  /* color: rgb(49, 247, 181); */
+  color: rgb(255, 255, 255);
   /* font-weight: 800; */
-  text-shadow: 1px 1px 20px rgba(104, 186, 253, 0.445);
+  text-shadow: 1px 1px 30px rgb(255, 255, 255);
   cursor: pointer;
 }
 
@@ -132,9 +132,9 @@ text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
 }
 
 .albumBody h5:hover {
-/* color: rgb(49, 247, 181); */
+color: rgb(151, 164, 209);
   /* font-weight: 800; */
-  text-shadow: 1px 1px 20px rgba(104, 186, 253, 0.445);
+  text-shadow: 1px 1px 30px rgb(0, 0, 0);
   cursor: pointer;
 }
 
