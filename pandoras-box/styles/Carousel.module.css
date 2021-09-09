@@ -1,98 +1,170 @@
-.albumsRow {
-  background-color: mintcream;
-  width: 90%;
-  margin: 50px auto;
-}
-
 .cardCarousel {
-  border: solid 2px rgb(48, 48, 48);
+  border:none ;
+  border-radius: px;
   outline: none;
-  background-color: rgb(160, 160, 160);
-  border-radius: 3px;
+  background-color: transparent;
   box-shadow: none;
-  margin-top: 3%;
+  margin: 3%;
 }
 
 .cardCarousel:hover {
   animation: animated-border 1.5s infinite;
-  border-color: rgb(150, 184, 255);
+  border-color: rgb(150, 184, 255) ;
 }
 
-/* css for glowing transitions */
+/*               css for glowing transitions */
 
 @keyframes animated-border {
   0% {
     box-shadow: 0 0 0 0 rgb(150, 184, 255);
   }
   100% {
-    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0);
+     box-shadow: 0 0 15px 4px rgba(255,255,255,0);
   }
 }
 
 .carsouselTitle {
-  font-size: 30px;
-  margin: 0 30px;
-  padding-top: 20px;
-  color: rgb(56, 161, 209);
-  text-shadow: 0 0 2px rgba(34, 148, 255, 0.616);
+font-size: 25px;
+color: rgb(56, 161, 209) ;
+text-shadow: 0 0 5px rgba(34, 148, 255, 0.616);
+margin-left: 5%;
+padding-left: 1%;
+border-left: 3px solid black
 }
 
 .profileName {
-  font-size: 25px;
-  color: rgb(0, 174, 255);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
+font-size: 25px;
+color: rgb(0, 174, 255);
+text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
 }
 
-.albumCard {
-  /* margin: 15px; */
-  /* background-color: teal; */
-  width: 90%;
-  padding: 30px 5px;
-  border-radius: 3px;
+/* artist info article */
+#artistProfile {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.466);
 }
 
-.albumCard img {
-  height: 175px;
-    width: 200px;
-    border-left: 25px double black;
-    border-style: groove;
-}
-
-.albumCard h5 {
-  font-size: 0.9rem;
-  font-style: italic;
-  font-family: serif;
-  margin-top: 5px;
-}
-
-.albumCard p {
-  font-size: 1.1rem;
-  font-family: sans-serif;
-  padding-bottom: 5px;
-}
-
-.albumCard:hover {
-  animation: animated-border 1.5s infinite;
-  border-color: rgb(150, 184, 255);
-}
-
-.card {
-  width: fit-content;
-}
-
-.slick-dots {
+#artistProfile > h2 {
   color: red;
 }
 
-.slick-dots li.slick-active button:before {
-  color: rgb(132, 185, 255);
+#artistProfile > p {
+  font-size: .9rem;
 }
 
-.slick-dots li button:before {
-  color: rgb(255, 255, 255);
+#artistProfile > img {
+  height: 300px;
+  width: 300px;
 }
 
-.slick-prev:before,
-.slick-next:before {
-  color: rgb(155, 188, 233);
+.albumBody {
+  padding: 0;
+  /* text-align: center; */
 }
+
+.artistBody > h2 {
+  font-size: 50px;
+  padding-bottom: 5px;
+  color: rgb(251, 255, 0);
+  text-shadow: 2px 1px 10px rgb(133, 133, 133);
+}
+
+.artistBody > p {
+  font-size: 1.2em;
+  text-shadow: 0px 0px 3px rgb(109, 109, 109);
+  color: rgb(12, 12, 12) !important;
+}
+
+/* discography article */
+.discography {
+  padding: 0 30px;
+}
+
+.discography > h2 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+  color: rgb(0, 160, 209);
+  text-shadow: 2px 1px 10px rgba(133, 133, 133, 0.521);
+}
+
+
+/* individual album card */
+.albumCard > * {
+  font-size: 20px;
+}
+
+.albumCard img {
+  border: 3px solid rgb(132, 185, 255);;
+  display: block;
+}
+
+.albumBody h4 {
+  color:  rgb(223, 223, 223);
+  background-color: rgba(0, 0, 0, 0.61);
+  padding:0 3%;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.438);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right:3px;
+}
+
+.albumBody h4:hover {
+  /* color: rgb(49, 247, 181); */
+  /* font-weight: 800; */
+  text-shadow: 1px 1px 20px rgba(104, 186, 253, 0.445);
+  cursor: pointer;
+}
+
+.albumBody h5 {
+  color:  rgb(94, 128, 238);
+  background-color: rgba(0, 0, 0, 0.61);
+  padding-left: 2%;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.438);
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  margin-right:3px;
+}
+
+.albumBody h5:hover {
+/* color: rgb(49, 247, 181); */
+  /* font-weight: 800; */
+  text-shadow: 1px 1px 20px rgba(104, 186, 253, 0.445);
+  cursor: pointer;
+}
+
+.albumBody span {
+  color: rgb(31, 31, 31);
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumBody p {
+  font-size: 15px;
+  color: rgb(31, 31, 31);
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumCard > h4 {
+  color: black;
+}
+
+.albumCard > p {
+  font-size: 10px;
+}
+
+/* idividual card */
+.album-card {
+  margin: 15px;
+}
+
+.album-card img {
+  height: 150px;
+  width: 150px;
+}
+
+

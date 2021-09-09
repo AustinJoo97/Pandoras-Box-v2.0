@@ -31,7 +31,7 @@ const Header = () => {
   console.log(typeVal);
   console.log(searchVal);
   return (
-    <header className="p-3 mb-5 border-bottom">
+    <header className="p-3 mb-5 border-bottomC">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start row">
 
