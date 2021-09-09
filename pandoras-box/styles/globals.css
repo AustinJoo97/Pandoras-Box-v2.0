@@ -349,3 +349,18 @@ a {
 .albumCard > p {
   font-size: 10px;
 }
+
+.embed-responsive-artist {
+  width: 225px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.embed-responsive-item-artist {
+  border: 3px solid rgb(132, 185, 255);
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+

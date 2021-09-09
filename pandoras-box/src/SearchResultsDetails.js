@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Col, Card, Row } from "react-bootstrap";
+import { Col, Card, Row, Container } from "react-bootstrap";
 
 import styles from '../styles/SearchPage.module.css';
 import { getQueryResults } from '../pages/api/spotify.js';
@@ -55,20 +55,23 @@ const PopulateSearch = () => {
             <Link href={`/${searchResultsReference.current}?q=${cardData.id}`} className="text-decoration-none">
                 <Card className={styles.cardCarousel}>
                     <Card.Body className= {styles.albumBody}>
-                        <div className="embed-responsive">
+                        <div className="embed-responsive-artist">
                             {cardData.images[0]
                                     ? <Card.Img
-                                        className="card-img-top embed-responsive-item"
+                                        className="card-img-top embed-responsive-item-artist"
+                                        variant="Top"
                                         src={cardData.images[0].url}
                                         alt={cardData.name}
                                     />
                                     : <Card.Img
-                                        className="card-img-top embed-responsive-item"
+                                        className="card-img-top embed-responsive-item-artist"
+                                        variant="Top"
                                         src='https://picsum.photos/200'
                                         alt='No picture provided'
                                     />
                                 }
                         </div>
+                        <Container>
                             <h5>{cardData.name}</h5>
                             <h4>
                                 <div>
@@ -82,7 +85,7 @@ const PopulateSearch = () => {
                                         : `Total tracks: ${cardData.total_tracks}`}
                                 </div>
                             </h4>
-                        
+                        </Container>
                     </Card.Body>
                 </Card>
             </Link>
