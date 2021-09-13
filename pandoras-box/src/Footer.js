@@ -5,7 +5,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bottom col-12 mt-5 text-white bg-dark">
+    <footer className="bottom col-12 mt-5 text-white bg-dark mt-100">
         <span className="btn col-12 text-white disabled">
           Pandoras Box © 2021 Ltd. Arr. | Ashquinn Gordon, Austin Joo, Brandon Ford, Forest Wilson 
         </span>

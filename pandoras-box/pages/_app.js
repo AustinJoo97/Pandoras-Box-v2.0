@@ -21,9 +21,13 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.jpeg" />
       </Head>
 
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <div className="Site relative">
+        <Header />
+        <div className="Site-content mx-auto w-full ">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
+      </div>
     </ApolloProvider>
   )
 }

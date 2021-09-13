@@ -1,39 +1,159 @@
-/* display what was searched */
-.show-query {
-  display: flex;
-  justify-content: center;
+.cardCarousel {
+  border:none ;
+  border-radius: px;
+  outline: none;
+  background-color: transparent;
+  box-shadow: none;
+  width: 225px;
+  margin: 3%;
 }
 
-/* card box */
-#searchResults {
-  width: 80%;
-  margin: 0 auto;
-  border-top: 1px solid grey;
+.cardCarousel:hover {
+  animation: animated-border 1.5s infinite;
+  border-color: rgb(150, 184, 255) ;
+  cursor: pointer;
+}
+
+/*               css for glowing transitions */
+
+@keyframes animated-border {
+  0% {
+    box-shadow: 0 0 0 0 rgb(150, 184, 255);
+  }
+  100% {
+     box-shadow: 0 0 15px 4px rgba(255,255,255,0);
+  }
+}
+
+.searchTitle {
+font-size: 25px;
+color: rgb(56, 161, 209) ;
+text-shadow: 0 0 5px rgba(34, 148, 255, 0.616);
+margin-left: 5%;
+padding-left: 1%;
+border-left: 3px solid black
+}
+
+.profileName {
+font-size: 25px;
+color: rgb(0, 174, 255);
+text-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
+}
+
+/* artist info article */
+#artistProfile {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.466);
+}
+
+#artistProfile > h2 {
+  color: red;
+}
+
+#artistProfile > p {
+  font-size: .9rem;
+}
+
+#artistProfile > img {
+  height: 300px;
+  width: 300px;
+}
+
+.albumBody {
+  padding: 0;
+  width: 225px;
+  /* text-align: center; */
+}
+
+.artistBody > h2 {
+  font-size: 50px;
+  padding-bottom: 5px;
+  color: rgb(251, 255, 0);
+  text-shadow: 2px 1px 10px rgb(133, 133, 133);
+}
+
+.artistBody > p {
+  font-size: 1.2em;
+  text-shadow: 0px 0px 3px rgb(109, 109, 109);
+  color: rgb(12, 12, 12) !important;
+}
+
+/* individual album card */
+.albumCard > * {
+  font-size: 20px;
+}
+
+
+.albumCard img {
+  border: 3px solid rgb(132, 185, 255);
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.albumBody h4 {
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.61);
+  padding:0 3%;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.438);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right:3px;
+}
+
+/* .albumBody h4:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 30px rgb(255, 255, 255);
+} */
+
+.albumBody h5 {
+  color: rgb(151, 164, 209);
+  background-color: rgba(0, 0, 0, 0.61);
+  padding-left: 2%;
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.438);
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  margin-right:3px;
+}
+
+/* .albumBody h5:hover {
+  color: rgb(151, 164, 209);
+  text-shadow: 1px 1px 30px rgb(0, 0, 0);
+  cursor: pointer;
+} */
+
+.albumBody span {
+  color: rgb(31, 31, 31);
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumBody p {
+  font-size: 15px;
+  color: rgb(31, 31, 31);
+  text-shadow: 2px 1px 10px rgba(17, 17, 17, 0.603);
+}
+
+.albumCard > h4 {
+  color: black;
+}
+
+.albumCard > p {
+  font-size: 10px;
 }
 
 /* idividual card */
-.albumCard {
-  /* margin: 15px; */
-  /* background-color: teal; */
-  width: 90%;
-  padding: 30px 5px;
-  border-radius: 3px;
+.album-card {
+  margin: 15px;
 }
 
-.albumCard img {
-  height: 140px;
-  width: 140px;
+.album-card img {
+  height: 150px;
+  width: 150px;
 }
 
-.albumCard h6 {
-  font-size: 0.9rem;
-  font-style: italic;
-  font-family: serif;
-  margin-top: 5px;
-}
 
-.albumCard p {
-  font-size: 1.1rem;
-  font-family: sans-serif;
-  padding-bottom: 5px;
-}
