@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require('apollo-server-micro');
 
 const typeDefs = gql`
     type User {
