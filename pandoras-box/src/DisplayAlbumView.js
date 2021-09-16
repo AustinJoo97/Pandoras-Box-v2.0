@@ -87,7 +87,7 @@ const ViewAlbum = ({ album }) => {
     
     return (
         <Container id="album">
-            <Row className="d-flex">
+            <Row className="d-flex m-5">
 
                 <Row id="albumHero" className="justify-content-md-around">
 
@@ -119,7 +119,7 @@ const ViewAlbum = ({ album }) => {
                     </Col>
 
                     {/* album information */}
-                    <Col lg="8" id="albumInfo">
+                    <Col lg="8" id="albumInfo" className="">
 
                         <h3 id="albumTitle" className="">{album.name}</h3>
 
@@ -156,8 +156,8 @@ const ViewAlbum = ({ album }) => {
                         </div>
 
 
-                        <div>
-                            <h4><a href={album.external_urls.spotify} className="">Listen on Spotify!</a></h4>
+                        <div className="container-spotify">
+                            <h4><a href={album.external_urls.spotify} className="spotifylink">Listen on Spotify!</a></h4>
                         </div>
                     </Col>
                 </Row>

@@ -51,7 +51,7 @@ const PopulateSearch = () => {
 
     // console.log(searchResultsReference.current)
     return sanResults.map(cardData => (
-        <Col lg="3" key={cardData.id} className={styles.albumCard}>
+        <Col lg="3" md="4" sm="6" key={cardData.id} className={styles.albumCard}>
             <Link href={`/${searchResultsReference.current}?q=${cardData.id}`} className="text-decoration-none">
                 <Card className={styles.cardCarousel}>
                     <Card.Body className= {styles.albumBody}>

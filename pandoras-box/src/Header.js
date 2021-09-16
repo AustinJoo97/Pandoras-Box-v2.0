@@ -78,7 +78,7 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <>
               <Dropdown className="col-1">
-                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger bg-lightblue">
+                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger logintoggle">
                   <HiOutlineCake />
                   {Auth.getProfile().data.username}
                 </Dropdown.Toggle>
@@ -92,7 +92,7 @@ const Header = () => {
           ) : (
             <>
               <Dropdown className="col-1">
-                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger bg-lightblue">
+                <Dropdown.Toggle variant="" id="dropdown-basic" className="menu-trigger logintoggle">
                   <HiUser />
                   Log-in
                 </Dropdown.Toggle>
