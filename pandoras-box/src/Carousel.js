@@ -30,7 +30,7 @@ const settingsNew = {
     dotsClass: 'slick-dots',
     speed: 400,
     slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     initialSlide: 4,
     responsive: [
         {
@@ -41,9 +41,21 @@ const settingsNew = {
             }
         },
         {
-            breakpoint: 1140,
+            breakpoint: 980,
             settings: {
-                slidesToShow: 5,
+                slidesToShow: 4,
+            }
+        },
+        {
+            breakpoint: 760,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
             }
         }
     ]
