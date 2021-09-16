@@ -4,7 +4,7 @@ import { HiSearch, HiUser, HiOutlineCake } from "react-icons/hi"
 import { GiBoxTrap } from "react-icons/gi"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import '../styles/Header.module.css';
 
 // utils
 import Auth from './utils/auth';
@@ -37,8 +37,8 @@ const Header = () => {
 
           {/* Site Logo */}
           <a href="/" id="logo" className="d-flex align-items-center mb-2 mb-lg-0 text-grey text-decoration-none col-5">
-            <GiBoxTrap className="display-2"></GiBoxTrap>
-            <h3 className="display-4">Pandoras Box</h3>
+            <GiBoxTrap className="display-5 text-lightblue"></GiBoxTrap>
+            <h3 className="display-7 text-lightblue">Pandoras Box</h3>
           </a>
 
           {/* search */}
@@ -49,6 +49,7 @@ const Header = () => {
                 title="Search by:"
                 id="dropdown-menu-align-right"
                 onSelect={handleSelect}
+                className="search-dropdown"
               >
                 <Dropdown.Item eventKey="artist">artist</Dropdown.Item>
                 <Dropdown.Item eventKey="album">album</Dropdown.Item>
@@ -68,7 +69,7 @@ const Header = () => {
               <Link
                 className="col-1"
                 href={`/search?q=${searchVal}&type=${typeVal}`}>
-                <HiSearch />
+                <HiSearch className="hisearch"/>
               </Link>
             </div>
           </div>
