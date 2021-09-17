@@ -239,8 +239,10 @@ a {
 
 /* album descriptors section */
 #albumInfo {
-  padding: 30px;
-  margin: ;
+  padding:10px;
+  position: relative;
+  /* margin: 10px; */
+  /* background-color: #292b2c; */
 }
 
 #albumTitle {
@@ -252,13 +254,13 @@ a {
 }
 
 .container-spotify {
-  margin-top: 40px !important;
+  margin-top: 20px !important;
   margin-left: 60px !important;
 }
 
 .spotifylink {
   white-space: nowrap;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   background-color: #1DB954;
   padding: 3px;
   color:#191414;
@@ -292,7 +294,6 @@ a {
 }
 
 #albumInfo > div > p {
-  white-space: nowrap;
   font-size: 1.5em;
   margin-left:10px;
   color: rgb(255, 255, 255);
@@ -308,17 +309,23 @@ a {
 /* tracklist */
 #trackList h3 {
   color: #ebebeb;
+  font-size: 3em;
   margin-top: 10px;
 }
 
 #trackList div {
   display: grid;
   grid-template-columns: 0.2fr 4fr;
-  border: 1px solid;
-  color: #ebebeb;
-  border-bottom: none;
+  border: 1px solid #191414 ;
+  font-size: 1.5em;
+  color: #ffffff;
+  
+  /* border-bottom: none; */
 }
 
+#trackList div:hover {
+  background-color:rgb(112, 112, 112);
+}
 /* artist info article */
 #artistProfile {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.466);
@@ -363,6 +370,7 @@ a {
   color: rgb(0, 160, 209);
   text-shadow: 2px 1px 10px rgba(133, 133, 133, 0.521);
 }
+
 
 
 /* individual album card */

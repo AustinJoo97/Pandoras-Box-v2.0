@@ -24,7 +24,7 @@ const settingsNew = {
     accessibility: true,
     dots: true,
     infinite: true,
-    arrows: true,
+    arrows: false,
     centerMode: true,
     centerPadding: '0px',
     dotsClass: 'slick-dots',
@@ -68,7 +68,7 @@ const settingsNew = {
 export const PopulateCarousel = ({ queryResults, queryTitle }) => {
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-5 carsousel-container">
             <Col>
                 <div className={styles.albumsRow}>
                     <h2 className={styles.carsouselTitle}>{queryTitle}</h2>

@@ -35,7 +35,7 @@ const TrackList = ({ album }) => {
     return album.tracks.items.map((track, idx) => (
         <div key={idx}>
             <span>{idx + 1}. </span>
-            <p>{track.name}</p>
+            <p className="m-auto">{track.name}</p>
         </div>
     ))
 }
@@ -92,7 +92,7 @@ const ViewAlbum = ({ album }) => {
                 <Row id="albumHero" className="justify-content-md-around">
 
                     {/* album cover, icons, and fav/comments stats */}
-                    <Col lg="4" className=" art-card ">
+                    <Col lg="4" className=" art-card m-auto">
                         <Card className="art-card bg-lightblue">
                             <Card.Body className=" justify-content-center bg-lightblue art-card ">
                                 <Card.Img
@@ -120,52 +120,53 @@ const ViewAlbum = ({ album }) => {
 
                     {/* album information */}
                     <Col lg="8" id="albumInfo" className="">
+                        
+                            <h3 id="albumTitle" className="">{album.name}</h3>
 
-                        <h3 id="albumTitle" className="">{album.name}</h3>
+                            <div>
+                                <span>Artist:</span>
+                                <Link className="artist-link" href={`/artist?q=${album.artists[0].id}`}>
+                                    <p>{album.artist || album.artists[0].name}</p>
+                                </Link>
+                            </div>
 
-                        <div>
-                            <span>Artist:</span>
-                            <Link className="artist-link" href={`/artist?q=${album.artists[0].id}`}>
-                                <p>{album.artist || album.artists[0].name}</p>
-                            </Link>
-                        </div>
+                            <div>
+                                <span>Release type:</span>
+                                <p>{album.album_type}</p>
+                            </div>
 
-                        <div>
-                            <span>Release type:</span>
-                            <p>{album.album_type}</p>
-                        </div>
+                            <div>
+                                <span>released:</span>
+                                <p>{album.release_date}</p>
+                            </div>
 
-                        <div>
-                            <span>released:</span>
-                            <p>{album.release_date}</p>
-                        </div>
+                            <div>
+                                <span>Total tracks:</span>
+                                <p>{album.tracks.total}</p>
+                            </div>
 
-                        <div>
-                            <span>Total tracks:</span>
-                            <p>{album.tracks.total}</p>
-                        </div>
+                            <div>
+                                <span>Album popularity:</span>
+                                <p>{album.popularity} / 100</p>
+                            </div>
 
-                        <div>
-                            <span>Album popularity:</span>
-                            <p>{album.popularity} / 100</p>
-                        </div>
-
-                        <div>
-                            <span>Record Label:</span>
-                            <p>{album.label}</p>
-                        </div>
+                            <div>
+                                <span>Record Label:</span>
+                                <p>{album.label}</p>
+                            </div>
 
 
-                        <div className="container-spotify">
-                            <h4><a href={album.external_urls.spotify} className="spotifylink">Listen on Spotify!</a></h4>
-                        </div>
+                            <div className="container-spotify">
+                                <h4><a href={album.external_urls.spotify} className="spotifylink">Listen on Spotify!</a></h4>
+                            </div>
+                        
                     </Col>
                 </Row>
 
                 {/* track list */}
                 <Row id="trackList" className=" justify-content-center mt-5">
                     <section className="col-10">
-                        <h2 className="mx-3">Track list</h2>
+                        <h3 className="mx-3">Track list</h3>
                         <TrackList album={album} />
                     </section>
                 </Row>
