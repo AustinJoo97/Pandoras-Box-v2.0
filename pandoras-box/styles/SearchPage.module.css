@@ -5,7 +5,8 @@
   background-color: transparent;
   box-shadow: none;
   width: 225px;
-  margin: 3%;
+  margin: auto;
+  margin-top: 5%;
 }
 
 .cardCarousel:hover {

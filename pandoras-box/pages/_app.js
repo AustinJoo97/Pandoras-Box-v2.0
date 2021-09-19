@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from '../apollo-client'
 import Head from 'next/head'

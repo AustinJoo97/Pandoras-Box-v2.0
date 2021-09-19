@@ -24,13 +24,13 @@ const settingsNew = {
     accessibility: true,
     dots: true,
     infinite: true,
-    arrows: true,
+    arrows: false,
     centerMode: true,
     centerPadding: '0px',
     dotsClass: 'slick-dots',
     speed: 400,
     slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     initialSlide: 4,
     responsive: [
         {
@@ -41,9 +41,21 @@ const settingsNew = {
             }
         },
         {
-            breakpoint: 1140,
+            breakpoint: 980,
             settings: {
-                slidesToShow: 5,
+                slidesToShow: 4,
+            }
+        },
+        {
+            breakpoint: 760,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
             }
         }
     ]
@@ -56,7 +68,7 @@ const settingsNew = {
 export const PopulateCarousel = ({ queryResults, queryTitle }) => {
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-5 carsousel-container">
             <Col>
                 <div className={styles.albumsRow}>
                     <h2 className={styles.carsouselTitle}>{queryTitle}</h2>

@@ -1,42 +1,43 @@
+/* header */
 .search-bar {
     display: flex;
     text-align-last: center;
     align-items: center;
 }
-
+  
 .search-bar > * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+  margin-left: 5px;
+  color: white;
 }
 
-
-#dropdown-basic > svg {
-    display: flex;
-    margin: 0 auto;
-    height: 40px;
-    width: 40px;
-}
-
-/* h1, h2, h3, h4, h5 {
-    color: rgb(204, 204, 204);
-} */
-
-.slick-dots li.slick-active button:before {
-    color: rgb(132, 185, 255);
-}
-
-.slick-dots li button:before {
-    color: rgb(255, 255, 255);
-}
-
-.slick-prev:before, .slick-next:before {
-    color: rgb(155, 188, 233) ;
+.search-bar svg {
+  height: 30px;
+  width: 30px;
 }
 
 .avatar svg {
-    height: 1000px;
+  height: 1000px;
 }
 
 
+.lightTxt button {
+  background-color:rgb(155, 188, 233)
+}
 
+.search-dropdown button {
+  background-color: rgb(132, 185, 255);
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 15px black;
+  border-color: #0d6efd
+}
 
+.hisearch {
+  color: rgb(132, 185, 255);
+}
+
+.hisearch:hover {
+  color: rgb(132, 185, 255);
+}
+  
